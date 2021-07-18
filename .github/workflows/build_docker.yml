@@ -17,6 +17,11 @@ jobs:
     steps:
     - name: Checkout
       uses: actions/checkout@v2
+      
+    - name: Prepare config
+      run: cd server && cp config.example.js config.js
+    - name: Prepare Certs
+      run: cd server && mkdir -p certs && cd certs && openssl genrsa > privkey.pem && openssl req -new -x509 -key privkey.pem -subj "/C=CN/ST=SH/L=Springfield/O=Dis/CN=www.example.com" > fullchain.pem
 
     - name: Build & Publish to Github Container Registry
       uses: elgohr/Publish-Docker-Github-Action@master

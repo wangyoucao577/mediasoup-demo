@@ -13,3 +13,7 @@ COPY . .
 RUN cd server && npm install && cp config.example.js config.js 
 RUN cd app && npm install 
 
+# for shown on runtime
+ARG IMAGE_TAG
+ENV IMAGE_TAG ${IMAGE_TAG}
+RUN echo IMAGE_TAG=${IMAGE_TAG} >> /etc/environment

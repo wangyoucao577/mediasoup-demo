@@ -33,7 +33,7 @@ jobs:
       with:
         name: ${{ github.actor }}/${{ env.IMAGE_NAME }}
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.WRITE_PACKAGES_TOKEN }}
         registry: ghcr.io
         snapshot: false
         workdir: ${{ env.DOCKERFILE_PATH }}

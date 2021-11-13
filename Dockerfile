@@ -9,6 +9,7 @@ RUN \
 WORKDIR /service
 
 COPY . .
+RUN mkdir -p server/certs
 
 RUN cd server && npm install && cp config.example.js config.js 
 RUN cd app && npm install 
@@ -17,3 +18,6 @@ RUN cd app && npm install
 ARG IMAGE_TAG
 ENV IMAGE_TAG ${IMAGE_TAG}
 RUN echo IMAGE_TAG=${IMAGE_TAG} >> /etc/environment
+
+
+ENTRYPOINT ["/bin/bash"]

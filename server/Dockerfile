@@ -4,7 +4,7 @@ FROM node:10 AS stage-one
 RUN \
 	set -x \
 	&& apt-get update \
-	&& apt-get install -y net-tools build-essential valgrind
+	&& apt-get install -y net-tools build-essential valgrind python3-pip
 
 WORKDIR /service
 

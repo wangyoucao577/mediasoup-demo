@@ -1,3 +1,44 @@
+# README for this FORK
+This repo intend to build all-in-one docker image which can make the demo easier: avoid the easy failing `npm install`.    
+
+### Usage
+- Pull
+```
+docker pull ghcr.io/wangyoucao577/mediasoup-demo
+```
+
+- Run 
+```
+docker run -d --network=host -e DOMAIN="0.0.0.0" -e MEDIASOUP_LISTEN_IP="0.0.0.0" -e MEDIASOUP_ANNOUNCED_IP=YOUR_SERVER_HOST_OR_PUBLIC_IP  ghcr.io/wangyoucao577/mediasoup-demo
+```
+
+- Prepare your certs
+Login to the container, then put them into `/service/server/certs` folder with name `fullchain.pem` and `privkey.pem`.      
+Optionally, you can create self-signed certs for testing use below command:     
+```
+cd /service/server/certs/ && openssl req -newkey rsa:2048 -nodes -keyout privkey.pem -x509 -days 365 -out fullchain.pem
+
+# make sure input your YOUR_SERVER_HOST_OR_PUBLIC_IP correctly for `Common Name`, otherwise you won't able to connect!     
+```
+
+- Open ports       
+```
+TCP: 3000, 4443    
+UDP: 40000-49999
+```     
+
+- Run services inside container      
+```
+cd /service/server/ && npm start 
+cd /service/app/ && npm start
+```
+
+- Open demo app in your browser        
+`https://YOUR_SERVER_HOST_OR_PUBLIC_IP:3000`      
+
+- Enjoy!     
+
+------------
 # mediasoup-demo v3
 
 A demo application of [mediasoup](https://mediasoup.org) **v3**.

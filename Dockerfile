@@ -4,7 +4,7 @@ FROM node:14-bullseye
 RUN \
 	set -x \
 	&& apt-get update \
-	&& apt-get install -y net-tools build-essential valgrind python3-pip 
+	&& apt-get install -y vim net-tools build-essential valgrind python3-pip 
 
 WORKDIR /service
 

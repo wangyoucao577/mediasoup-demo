@@ -9,7 +9,7 @@ docker pull ghcr.io/wangyoucao577/mediasoup-demo
 
 - Run 
 ```
-docker run -d --network=host -e DOMAIN="0.0.0.0" -e MEDIASOUP_LISTEN_IP="0.0.0.0" -e MEDIASOUP_ANNOUNCED_IP=YOUR_SERVER_HOST_OR_PUBLIC_IP  ghcr.io/wangyoucao577/mediasoup-demo
+docker run -it --network=host -e DOMAIN="0.0.0.0" -e MEDIASOUP_LISTEN_IP="0.0.0.0" -e MEDIASOUP_ANNOUNCED_IP=YOUR_SERVER_HOST_OR_PUBLIC_IP  ghcr.io/wangyoucao577/mediasoup-demo
 ```
 
 - Prepare your certs       

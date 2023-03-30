@@ -29,7 +29,7 @@ jobs:
     #   run: cd server && mkdir -p certs && cd certs && openssl genrsa > privkey.pem && openssl req -new -x509 -key privkey.pem -subj "/C=CN/ST=SH/L=Springfield/O=Dis/CN=www.example.com" > fullchain.pem
 
     - name: Build & Publish to Github Container Registry
-      uses: elgohr/Publish-Docker-Github-Action@master
+      uses: elgohr/Publish-Docker-Github-Action@v5
       with:
         name: ${{ github.actor }}/${{ env.IMAGE_NAME }}
         username: ${{ github.actor }}
